@@ -1,20 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>OathQuest: World of Ouros — Complete 15-Minute Lore &amp; Feature Masterclass</title>
+    <title>OathQuest: World of Ouros — 15-Minute Cinematic Live-Gameplay Walkthrough</title>
     <style>
       :root {
         color-scheme: dark;
         --bg: #070b14;
         --panel: rgba(15, 23, 42, 0.92);
-        --border: rgba(245, 197, 66, 0.32);
+        --border: rgba(245, 197, 66, 0.34);
         --gold: #f5c542;
         --gold-soft: #fde68a;
         --text: #f8fafc;
         --muted: #94a3b8;
         --aether: #38bdf8;
+        --target-size: 24px;
+      }
+      @media (pointer: coarse) {
+        :root {
+          --target-size: 44px;
+        }
       }
       * {
         box-sizing: border-box;
@@ -25,13 +31,33 @@
         background: radial-gradient(circle at 50% 0%, #172554 0%, #070b14 58%);
         color: var(--text);
         min-block-size: 100dvh;
-        padding-block-end: 48px;
+        overflow-wrap: anywhere;
+        padding-block-end: max(48px, env(safe-area-inset-bottom, 0px));
+        padding-inline-start: env(safe-area-inset-left, 0px);
+        padding-inline-end: env(safe-area-inset-right, 0px);
+      }
+      h1,
+      h2,
+      h3 {
+        text-wrap: balance;
+      }
+      p {
+        text-wrap: pretty;
+      }
+      img,
+      video {
+        max-inline-size: 100%;
+        block-size: auto;
+      }
+      :where(button, nav a) {
+        min-block-size: var(--target-size);
+        min-inline-size: var(--target-size);
       }
       .shell {
-        max-inline-size: 1240px;
+        max-inline-size: 1280px;
         margin-inline: auto;
         padding-inline: 16px;
-        padding-block-start: 20px;
+        padding-block-start: max(20px, env(safe-area-inset-top, 0px));
       }
       .topbar {
         display: flex;
@@ -73,6 +99,7 @@
         background: rgba(30, 41, 59, 0.85);
         color: var(--gold-soft);
         cursor: pointer;
+        transition: background-color 0.16s ease, border-color 0.16s ease;
       }
       .btn.primary {
         background: linear-gradient(135deg, #f59e0b, #eab308);
@@ -108,16 +135,28 @@
         color: var(--gold-soft);
         font-weight: 700;
       }
+      .now-playing-spec {
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
       .section-title {
         margin: 26px 0 12px;
         font-size: 1.08rem;
         color: var(--gold-soft);
         letter-spacing: 0.03em;
       }
+      .chapters-wrap {
+        container: chapters / inline-size;
+      }
       .chapters-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+        grid-template-columns: 1fr;
         gap: 10px;
+      }
+      @container chapters (inline-size > 36rem) {
+        .chapters-grid {
+          grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+        }
       }
       .chapter-btn {
         text-align: start;
@@ -127,13 +166,21 @@
         padding: 11px 13px;
         color: var(--text);
         cursor: pointer;
-        transition: border-color 0.16s ease, transform 0.16s ease;
+        transition: border-color 0.16s ease, background-color 0.16s ease;
+        @media (prefers-reduced-motion: no-preference) {
+          transition:
+            border-color 0.16s ease,
+            background-color 0.16s ease,
+            transform 0.16s ease;
+        }
       }
       .chapter-btn:hover,
       .chapter-btn.active {
         border-color: var(--gold);
         background: rgba(30, 41, 59, 0.96);
-        transform: translateY(-1px);
+        @media (prefers-reduced-motion: no-preference) {
+          transform: translateY(-1px);
+        }
       }
       .ch-top {
         display: flex;
@@ -160,9 +207,9 @@
       }
       .pillars-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 12px;
-        margin-block-start: 14px;
+        margin-block-start: 16px;
       }
       .pillar-box {
         background: var(--panel);
@@ -181,86 +228,108 @@
         line-height: 1.5;
         color: #cbd5e1;
       }
+      .foot-note {
+        margin-block-start: 22px;
+        padding-block-start: 14px;
+        border-block-start: 1px solid rgba(148, 163, 184, 0.16);
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
     </style>
   </head>
   <body>
     <div class="shell">
       <header class="topbar">
         <div>
-          <div class="kicker">OathQuest: World of Ouros · Narrated 15-Minute Deep-Dive</div>
-          <h1>Complete Lore, 10 Ouros Tiers, 15 Disciplines &amp; 26 Cinematic Quests</h1>
+          <div class="kicker">OathQuest: World of Ouros · 15-Minute Live-Gameplay Film</div>
+          <h1>Live Fake-Mouse Mechanics, Real Battles, 26 Quests &amp; Tolkien Lore</h1>
         </div>
-        <div class="cta-row">
-          <a class="btn" href="./index.html">🎬 72s Flagship Trailer</a>
+        <nav class="cta-row" aria-label="Walkthrough actions">
+          <a class="btn" href="./index.html"><span aria-hidden="true">🎬</span> 72s Flagship Trailer</a>
           <a
             class="btn"
-            href="https://github.com/collin-schreyer/oathquest-trailer/releases/download/v2.0-masterclass/OathQuest-Masterclass-1080p-HQ.mp4"
-          >⬇ Save 1080p HQ Master</a>
-          <a class="btn primary" id="play-live-link" href="./">⚔️ Play OathQuest Live</a>
-        </div>
+            href="https://github.com/collin-schreyer/oathquest-trailer/releases/download/v2.1-cinematic-walkthrough/OathQuest-Masterclass-1080p-HQ.mp4"
+          ><span aria-hidden="true">⬇</span> Save 1080p HQ Master</a>
+          <a class="btn primary" id="play-live-link" href="./"><span aria-hidden="true">⚔️</span> Play OathQuest Live</a>
+        </nav>
       </header>
 
-      <div class="video-card">
-        <video
-          id="mc-video"
-          controls
-          playsinline
-          preload="metadata"
-          poster="./oathquest-masterclass-poster.jpg"
-          data-release-src=""
-          src="./oathquest-masterclass.mp4"
-        ></video>
-        <div class="now-playing-bar">
-          <span id="active-ch-banner" class="now-playing-label">Chapter I · The Three Ages &amp; Song of Anor (00:00)</span>
-          <span style="color: #94a3b8; font-size: 0.82rem;">1920×1080 HD · 30 fps · ElevenLabs British Lorekeeper Voiceover</span>
-        </div>
-      </div>
+      <main>
+        <section class="video-card" aria-label="15-minute live gameplay walkthrough">
+          <video
+            id="mc-video"
+            controls
+            playsinline
+            width="1920"
+            height="1080"
+            preload="metadata"
+            poster="./oathquest-masterclass-poster.jpg"
+            src="./oathquest-masterclass.mp4"
+          >
+            <track
+              src="./oathquest-masterclass-captions.vtt"
+              kind="captions"
+              srclang="en"
+              label="English"
+            />
+          </video>
+          <div class="now-playing-bar">
+            <span id="active-ch-banner" class="now-playing-label">Chapter I · The Three Ages &amp; Song of Anor (00:00)</span>
+            <span class="now-playing-spec">1920×1080 HD · 30 fps · Live In-Game Fake-Mouse Capture + 16 Tolkien Murals · ElevenLabs Voiceover</span>
+          </div>
+        </section>
 
-      <h2 class="section-title">🧭 Jump to Any of the 12 Chapters (14m 54s Total)</h2>
-      <div class="chapters-grid" id="chapters-grid"></div>
+        <h2 class="section-title">Jump to Any of the 12 Chapters (14m 54s Total)</h2>
+        <div class="chapters-wrap">
+          <div class="chapters-grid" id="chapters-grid"></div>
+        </div>
 
-      <div class="pillars-grid">
-        <div class="pillar-box">
-          <h3>🛡️ 10 Original Ouros Gear Tiers (Lv. 1 → 99)</h3>
-          <p>
-            Hearth-Brass (Lv.1) → Fen-Shale (Lv.8) → Watch-Crest (Lv.16) → Dusk-Basalt (Lv.24) →
-            Rime-Silver (Lv.36) → Deep-Crag (Lv.48) → Sky-Cobalt (Lv.60) → Crimson Wyrmscale (Lv.72) →
-            Moon-Silver Ithildin (Lv.84) → Dawn-Shard Sovereign (Lv.92–99).
-          </p>
+        <div class="pillars-grid">
+          <article class="pillar-box">
+            <h3>10 Original Ouros Gear Tiers (Lv. 1 → 99)</h3>
+            <p>
+              Hearth-Brass (Lv.1) → Fen-Shale (Lv.8) → Watch-Crest (Lv.16) → Dusk-Basalt (Lv.24) →
+              Rime-Silver (Lv.36) → Deep-Crag (Lv.48) → Sky-Cobalt (Lv.60) → Crimson Wyrmscale (Lv.72) →
+              Moon-Silver Ithildin (Lv.84) → Dawn-Shard Sovereign (Lv.92–99).
+            </p>
+          </article>
+          <article class="pillar-box">
+            <h3>15 Original Ouros Disciplines</h3>
+            <p>
+              Bladework · Might · Bulwark · Vitality · Marksmanship · Starcalling · Oathkeeping ·
+              Beast-Lore · Earthdelving · Anvilcraft · Timbercraft · Bowyery · Tidecraft ·
+              Hearthcraft · Sigil-Binding — with Lv. 92 = 6,517,253 XP (half of Lv. 99 = 13,034,431 XP) &amp; 1×/4×/10× Oath Pacing.
+            </p>
+          </article>
+          <article class="pillar-box">
+            <h3>24 Live Fake-Mouse Clips &amp; 16 Tolkien Murals</h3>
+            <p>
+              Demonstrates real multi-turn battles, Overhead Vow prayer-flicking against Lv. 98 Tz-Kharoth,
+              3-Act Shining Force quest cutscenes, 24fps Earthdelving, Grand Exchange orders, and 2-Screen Safe Trade.
+            </p>
+          </article>
         </div>
-        <div class="pillar-box">
-          <h3>📊 15 Original Ouros Disciplines</h3>
-          <p>
-            Bladework · Might · Bulwark · Vitality · Marksmanship · Starcalling · Oathkeeping ·
-            Beast-Lore · Earthdelving · Anvilcraft · Timbercraft · Bowyery · Tidecraft ·
-            Hearthcraft · Sigil-Binding — with Lv. 92 = 6,517,253 XP (half of Lv. 99 = 13,034,431 XP) &amp; 1×/4×/10× Oath Pacing.
-          </p>
-        </div>
-        <div class="pillar-box">
-          <h3>🎬 26 Playable 3-Act Cinematic Quests</h3>
-          <p>
-            Every quest across all 4 Books features physical dry-land Overworld NPCs &amp; props,
-            custom pixel-art stage backdrops, Shining Force speech bubbles, live Hero gear rendering,
-            and 26 bespoke Story Boss battles.
-          </p>
-        </div>
-      </div>
+      </main>
+
+      <footer class="foot-note">
+        OathQuest: World of Ouros — Playable in browser across desktop and mobile with live Cloud Sync.
+      </footer>
     </div>
 
     <script>
       const CHAPTERS = [
-        { num: 'I', start: 0, title: 'The Three Ages & Song of Anor', desc: 'Tolkien mythopoeia, Saltheron’s Drowning, 18 Elder Steles & Red Book.' },
-        { num: 'II', start: 84.86, title: '10 Original Tiers & 360° Hero Studio', desc: 'Hearth-Brass to Ithildin & Dawn-Shard Sovereign on a live paper-doll rig.' },
-        { num: 'III', start: 168.79, title: '2.5D Cliffs & Zero-Water Collision Audit', desc: 'Tap-to-walk, Choose Option menus, Z=0..3 plateaus & 0 water-walking bugs.' },
-        { num: 'IV', start: 241.25, title: '18 Connected Realms & 4 Great Capitals', desc: '86-tile Great King’s Highways, Silverhaven, Sunspire, Ironhold & Duskwatch.' },
-        { num: 'V', start: 305.21, title: '5 Multi-Room Dungeons & Boss Lairs', desc: 'Sunken Barrows, Cindermaw Caldera, Frostfang Keep & Vault of Whispers.' },
-        { num: 'VI', start: 369.36, title: '15 Ouros Disciplines & Lv. 99 Math', desc: 'Exact exponential XP curve, 1×/4×/10× Oath Pacing & Sovereign Mantles.' },
-        { num: 'VII', start: 450.18, title: 'Earthdelving, Anvilcraft, Bowyery & Bank', desc: 'Tool speed scaling (2.40s → 1.41s), Sun-Bough groves & 400-slot Bank.' },
-        { num: 'VIII', start: 520.83, title: 'Tactical Combat, Starcalling & Oathkeeping', desc: 'Combat stances, Spell-Sigil obelisks, 75% Overhead Vows & Special Attacks.' },
-        { num: 'IX', start: 592.55, title: 'Ground Loot Beams, GE & Safe Trade', desc: '5-tier drop tables, 6-slot Grand Exchange & World 301 2-screen player trade.' },
-        { num: 'X', start: 664.68, title: '26 Cinematic Quests & Golden Compass', desc: '3-Act staged cutscenes, 26 Story Bosses, BFS Star-Compass & Cloud Sync.' },
-        { num: 'XI', start: 735.28, title: 'Treasure Trails, 8 Pets & Homestead Keep', desc: 'Cryptic Spade digs, Master Caskets, following pets & 5-room Keep.' },
-        { num: 'XII', start: 814.9, title: 'Wilderness Depth 1–50 & Kiln of Udûn', desc: 'Prayer-flick Lv. 98 Tz-Kharoth to claim the animated Molten Fire Cape.' }
+        { num: 'I', start: 0, title: 'The Three Ages & Song of Anor', desc: 'Harbor rain arrival, First-Age Choir of Anor murals & Aldric’s 9,999 Solar Crit rescue.' },
+        { num: 'II', start: 84.86, title: '10 Original Tiers & 360° Hero Studio', desc: 'Live 1v3 Goblin rescue battle, Oathhaven’s 5 quarters & 360° paper-doll turntable.' },
+        { num: 'III', start: 168.79, title: 'Tactile Controls & 2.5D Cliffs', desc: 'Left-click bridge pathing, Right-click Choose Option menu & Topographic Radar.' },
+        { num: 'IV', start: 241.25, title: '18 Connected Realms & 5 Dungeons', desc: '86-tile Great King’s Highway, Silverhaven, Sunspire, 3D Globe & Sunken Barrows.' },
+        { num: 'V', start: 305.21, title: '18 Ithildin Steles & Tolkien Counsel', desc: 'Standing Elder Lore Stele transcription, Red Book Lexicon & branching NPC counsel.' },
+        { num: 'VI', start: 369.36, title: '15 Ouros Disciplines & Lv. 99 Mantles', desc: 'Skill Mastery Guides, 1×/4×/10× Oath Pacing, Level-Up Scrolls & Sovereign Mantles.' },
+        { num: 'VII', start: 450.18, title: 'Earthdelving, Anvilcraft & Grand Bank', desc: 'Live 24fps ore quarrying, timber felling, anvil forging & 400-slot Bank vault.' },
+        { num: 'VIII', start: 520.83, title: 'Combat Stances, Vows & Specials', desc: 'Stance switching, Sigil-Binding, 75% Overhead Vows & Dawn-Shard Special finishers.' },
+        { num: 'IX', start: 592.55, title: 'Loot Beams, GE & Safe Player Trade', desc: '5-rarity ground loot beams, Gilded Trim, 6-slot GE & World 301 2-screen Safe Trade.' },
+        { num: 'X', start: 664.68, title: '26 3-Act Story Quests & Boss Trials', desc: 'Speaking “Mellon” at the West-Door, live Saltheron Crypt boss → Act III & BFS Compass.' },
+        { num: 'XI', start: 735.28, title: 'Clue Scrolls, 8 Pets & Homestead Keep', desc: 'Spade coordinate dig, Master Casket, following Jadling pet & walkable 5-room Keep.' },
+        { num: 'XII', start: 814.9, title: 'Wilderness & Obsidian Kiln of Udûn', desc: 'Depth 1–50 Wilderness & prayer-flicking Lv. 98 Tz-Kharoth for the Molten Fire Cape.' }
       ];
 
       function fmt(sec) {
@@ -278,17 +347,13 @@
       }
 
       const video = document.getElementById('mc-video');
-      const relSrc = video.getAttribute('data-release-src');
-      if (relSrc && relSrc.startsWith('https://')) {
-        video.src = relSrc;
-      }
-
       const grid = document.getElementById('chapters-grid');
       const banner = document.getElementById('active-ch-banner');
       const btns = CHAPTERS.map((ch, idx) => {
         const b = document.createElement('button');
         b.type = 'button';
         b.className = 'chapter-btn' + (idx === 0 ? ' active' : '');
+        b.setAttribute('aria-current', idx === 0 ? 'step' : 'false');
         b.innerHTML =
           '<div class="ch-top"><span>CHAPTER ' + ch.num + '</span><span class="ch-time">' + fmt(ch.start) + '</span></div>' +
           '<div class="ch-name">' + ch.title + '</div>' +
@@ -307,7 +372,11 @@
         for (let i = 0; i < CHAPTERS.length; i++) {
           if (t >= CHAPTERS[i].start - 0.25) activeIdx = i;
         }
-        btns.forEach((b, idx) => b.classList.toggle('active', idx === activeIdx));
+        btns.forEach((b, idx) => {
+          const isCur = idx === activeIdx;
+          b.classList.toggle('active', isCur);
+          b.setAttribute('aria-current', isCur ? 'step' : 'false');
+        });
         const cur = CHAPTERS[activeIdx];
         banner.textContent = 'Chapter ' + cur.num + ' · ' + cur.title + ' (' + fmt(cur.start) + ')';
       });
