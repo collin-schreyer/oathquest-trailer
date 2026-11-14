@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oathbreakers — Official Announcement Trailer (1080p60)</title>
+    <meta
+      name="description"
+      content="Watch the official 1080p60 announcement trailer for Oathbreakers — 34 seamless hand-built realms, 18 interlocking skills, living Grand Exchange trade, co-op boss raids, and browser-instant play."
+    />
+    <meta property="og:title" content="Oathbreakers — Official Announcement Trailer (1080p60)" />
+    <meta
+      property="og:description"
+      content="When the Long Peace Broke — 34 Seamless Realms · 18 Interlocking Skills · Grand Exchange & Co-op Boss Raids · Play Free in Your Browser."
+    />
+    <meta property="og:type" content="video.other" />
+    <meta property="og:image" content="https://collin-schreyer.github.io/oathquest-trailer/oathbreakers-poster.jpg" />
+    <link rel="icon" type="image/png" href="emblem-128.png" />
+    <link
+      rel="preload"
+      href="oathbreakers-poster.jpg"
+      as="image"
+      type="image/jpeg"
+      fetchpriority="high"
+    />
+    <style>
+      :root {
+        --bg-abyss: #0b0907;
+        --bg-panel: #14100c;
+        --bg-chip: #1e1812;
+        --ink-primary: #f4ecd8;
+        --ink-muted: #cbbba0;
+        --gold-accent: #f5d06f;
+        --gold-deep: #c9962c;
+        --gold-border: rgba(245, 208, 111, 0.42);
+
+        color-scheme: dark;
+        accent-color: var(--gold-accent);
+        color: var(--ink-primary);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        min-block-size: 100dvh;
+        background:
+          radial-gradient(circle at 50% 0%, rgba(245, 208, 111, 0.14), transparent 56%),
+          linear-gradient(180deg, #120e0a 0%, var(--bg-abyss) 100%);
+        color: var(--ink-primary);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        line-height: 1.5;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        padding: 0.85rem 1.25rem;
+        border-block-end: 1px solid rgba(245, 208, 111, 0.2);
+        background: rgba(11, 9, 7, 0.88);
+        backdrop-filter: blur(10px);
+      }
+
+      .header-inner {
+        max-inline-size: 72rem;
+        margin-inline: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .brand-lockup {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+      }
+
+      .brand-emblem {
+        inline-size: 2rem;
+        block-size: 2rem;
+        aspect-ratio: 1 / 1;
+        image-rendering: pixelated;
+      }
+
+      .brand-kicker {
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold-accent);
+      }
+
+      .header-actions {
+        display: flex;
+        gap: 0.55rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .nav-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.45rem 0.9rem;
+        border-radius: 999px;
+        border: 1px solid var(--gold-border);
+        background: var(--bg-chip);
+        color: var(--ink-primary);
+        font-size: 0.84rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .nav-pill:hover,
+      .nav-pill:focus-visible {
+        border-color: var(--gold-accent);
+        background: rgba(245, 208, 111, 0.14);
+      }
+
+      main {
+        flex: 1;
+        inline-size: 100%;
+        max-inline-size: 72rem;
+        margin-inline: auto;
+        padding: 1.35rem 1rem 2.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .hero-heading-group {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+
+      .eyebrow {
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold-accent);
+      }
+
+      h1 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.5rem, 1rem + 2.4vw, 3.2rem);
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        line-height: 1.12;
+        color: var(--ink-primary);
+      }
+
+      .subtitle {
+        font-size: clamp(0.92rem, 0.86rem + 0.4vw, 1.12rem);
+        color: var(--ink-muted);
+      }
+
+      .player-shell {
+        color-scheme: only dark;
+        background: #050403;
+        color: var(--ink-primary);
+        accent-color: var(--gold-accent);
+        border: 2px solid var(--gold-border);
+        border-radius: 0.95rem;
+        overflow: hidden;
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.78);
+      }
+
+      video {
+        display: block;
+        inline-size: 100%;
+        block-size: auto;
+        aspect-ratio: 16 / 9;
+        background: #050403;
+      }
+
+      .controls-bar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0.65rem;
+        padding: 0.85rem 1rem;
+        background: var(--bg-panel);
+        border-block-start: 1px solid rgba(245, 208, 111, 0.2);
+      }
+
+      .btn-primary {
+        appearance: none;
+        border: 0;
+        cursor: pointer;
+        padding: 0.72rem 1.3rem;
+        border-radius: 0.6rem;
+        background: linear-gradient(180deg, var(--gold-accent) 0%, var(--gold-deep) 100%);
+        color: #0b0907;
+        font-size: 0.95rem;
+        font-weight: 800;
+      }
+
+      .btn-secondary {
+        appearance: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.68rem 1.1rem;
+        border-radius: 0.6rem;
+        border: 1.5px solid var(--gold-border);
+        background: var(--bg-chip);
+        color: var(--ink-primary);
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .btn-secondary:hover,
+      .btn-secondary:focus-visible {
+        border-color: var(--gold-accent);
+        background: rgba(245, 208, 111, 0.14);
+      }
+
+      .chapters-section {
+        background: rgba(20, 16, 12, 0.88);
+        border: 1px solid rgba(245, 208, 111, 0.24);
+        border-radius: 0.85rem;
+        padding: 1rem 1.1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+      }
+
+      h2 {
+        font-size: 0.84rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--gold-accent);
+      }
+
+      .chapter-list {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .chapter-btn {
+        appearance: none;
+        cursor: pointer;
+        padding: 0.5rem 0.85rem;
+        border-radius: 999px;
+        border: 1px solid rgba(245, 208, 111, 0.34);
+        background: var(--bg-chip);
+        color: var(--ink-primary);
+        font-size: 0.84rem;
+        font-weight: 700;
+      }
+
+      .chapter-btn:hover,
+      .chapter-btn:focus-visible {
+        border-color: var(--gold-accent);
+        background: rgba(245, 208, 111, 0.16);
+      }
+
+      footer {
+        padding: 1rem;
+        text-align: center;
+        font-size: 0.82rem;
+        color: var(--ink-muted);
+        border-block-start: 1px solid rgba(245, 208, 111, 0.12);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="brand-lockup">
+          <img
+            class="brand-emblem"
+            src="emblem-128.png"
+            width="32"
+            height="32"
+            alt="Sundered Ring of Oathbreakers"
+          />
+          <span class="brand-kicker">Oathbreakers · Official Announcement Trailer</span>
+        </div>
+        <nav class="header-actions" aria-label="Related trailers">
+          <a class="nav-pill" href="index.html">Flagship Overview</a>
+          <a class="nav-pill" href="masterclass.html">15m Lore Masterclass</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="hero-heading-group">
+        <p class="eyebrow">When the Long Peace Broke</p>
+        <h1>OATHBREAKERS</h1>
+        <p class="subtitle">
+          34 Seamless Realms · 18 Interlocking Disciplines · Living Grand Exchange &amp; Co-op Boss Raids · 1080p 60fps
+        </p>
+      </div>
+
+      <section class="player-shell" aria-label="Oathbreakers Official Announcement Trailer Player">
+        <video
+          id="trailer-video"
+          controls
+          playsinline
+          preload="metadata"
+          width="1920"
+          height="1080"
+          poster="oathbreakers-poster.jpg"
+        >
+          <source src="oathbreakers-announcement-trailer.mp4" type="video/mp4" />
+          <track
+            src="oathbreakers-captions.vtt"
+            kind="captions"
+            srclang="en"
+            label="English"
+            default
+          />
+        </video>
+        <div class="controls-bar">
+          <button type="button" id="btn-play-sound" class="btn-primary">
+            ▶ Play with Sound
+          </button>
+          <button type="button" id="btn-fullscreen" class="btn-secondary">
+            ⛶ Fullscreen
+          </button>
+          <a
+            class="btn-secondary"
+            href="oathbreakers-announcement-trailer.mp4"
+            download="Oathbreakers_Announcement_Trailer_1080p60.mp4"
+          >
+            ⬇ Download 1080p60 MP4
+          </a>
+        </div>
+      </section>
+
+      <section class="chapters-section" aria-labelledby="chapters-heading">
+        <h2 id="chapters-heading">Jump to Trailer Beat</h2>
+        <ul class="chapter-list">
+          <li><button type="button" class="chapter-btn" data-seek="0">0:00 · I. The Hook (Sunspire &amp; Finisher)</button></li>
+          <li><button type="button" class="chapter-btn" data-seek="5">0:05 · II. Click, Gather &amp; Level Up</button></li>
+          <li><button type="button" class="chapter-btn" data-seek="15">0:15 · III. A World Drawn by Hand</button></li>
+          <li><button type="button" class="chapter-btn" data-seek="35">0:35 · IV. Every Skill Is Yours to Master</button></li>
+          <li><button type="button" class="chapter-btn" data-seek="55">0:55 · V. Adventure Together</button></li>
+          <li><button type="button" class="chapter-btn" data-seek="67">1:07 · T1 → T5 → T10 Match-Cut</button></li>
+          <li><button type="button" class="chapter-btn" data-seek="70">1:10 · VI. Abyssal Rift &amp; Sky-Citadel</button></li>
+          <li><button type="button" class="chapter-btn" data-seek="78.5">1:18 · Oathbreakers Title Reveal</button></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      Oathbreakers: When the Long Peace Broke · Captured Live in 1080p60 from the Ouros Engine · Assembled with HyperFrames
+    </footer>
+
+    <script>
+      const video = document.getElementById("trailer-video");
+      const playSoundBtn = document.getElementById("btn-play-sound");
+      const fullscreenBtn = document.getElementById("btn-fullscreen");
+
+      playSoundBtn.addEventListener("click", async () => {
+        video.muted = false;
+        if (video.paused) {
+          await video.play();
+        } else {
+          video.pause();
+        }
+      });
+
+      video.addEventListener("play", () => {
+        playSoundBtn.textContent = "⏸ Pause Trailer";
+      });
+
+      video.addEventListener("pause", () => {
+        playSoundBtn.textContent = "▶ Play with Sound";
+      });
+
+      fullscreenBtn.addEventListener("click", () => {
+        if (video.requestFullscreen) {
+          video.requestFullscreen();
+        } else if (video.webkitEnterFullscreen) {
+          video.webkitEnterFullscreen();
+        }
+      });
+
+      for (const btn of document.querySelectorAll(".chapter-btn")) {
+        btn.addEventListener("click", async () => {
+          const sec = Number(btn.dataset.seek || "0");
+          video.currentTime = sec;
+          video.muted = false;
+          await video.play();
+        });
+      }
+    </script>
+  </body>
+</html>
